@@ -1,4 +1,3 @@
-/node_modules
 /examples/rust/Cargo.lock
 /examples/rust/target
 /examples/criterion-rs/Cargo.lock
