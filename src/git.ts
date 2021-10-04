@@ -54,7 +54,7 @@ export async function cmd(...args: string[]): Promise<string> {
 
 function getRemoteUrl(token: string): string {
     /* eslint-disable @typescript-eslint/camelcase */
-    const fullName = github.context.repo.repo
+    const fullName = `${github.context.repo.owner}/${github.context.repo.repo}`;
     /* eslint-enable @typescript-eslint/camelcase */
 
     return `https://x-access-token:${token}@github.com/${fullName}.git`;
