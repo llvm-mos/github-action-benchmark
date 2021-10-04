@@ -107,13 +107,13 @@ function findAlerts(curSuite: Benchmark, prevSuite: Benchmark, threshold: number
 }
 
 function getCurrentRepo() {
-    const repo = github.context.payload.repository;
-    if (!repo) {
-        throw new Error(
-            `Repository information is not available in payload: ${JSON.stringify(github.context.payload, null, 2)}`,
-        );
-    }
-    return repo;
+    return {
+        name: github.context.repo.repo,
+        owner: {
+            login: github.context.repo.owner,
+        },
+        html_url: `https://github.com/${github.context.repo.repo}`,
+    };
 }
 
 function floatStr(n: number) {
