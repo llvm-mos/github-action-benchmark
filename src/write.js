@@ -89,12 +89,13 @@ function findAlerts(curSuite, prevSuite, threshold) {
     return alerts;
 }
 function getCurrentRepo() {
+    const fullName = `${github.context.repo.owner}/${github.context.repo.repo}`;
     return {
-        name: github.context.repo.repo,
+        name: fullName,
         owner: {
             login: github.context.repo.owner,
         },
-        html_url: `https://github.com/${github.context.repo.repo}`,
+        html_url: `https://github.com/${fullName}`,
     };
 }
 function floatStr(n) {
