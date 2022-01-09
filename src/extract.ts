@@ -202,6 +202,10 @@ async function getHeadCommit(githubToken: string): Promise<Commit> {
 }
 
 async function getCommit(githubToken?: string): Promise<Commit> {
+    if (github.context.payload.client_payload?.head_commit) {
+        return github.context.payload.client_payload.head_commit;
+    }
+
     if (github.context.payload.head_commit) {
         return github.context.payload.head_commit;
     }

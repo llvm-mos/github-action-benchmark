@@ -74,6 +74,10 @@ async function getHeadCommit(githubToken) {
     };
 }
 async function getCommit(githubToken) {
+    var _a;
+    if ((_a = github.context.payload.client_payload) === null || _a === void 0 ? void 0 : _a.head_commit) {
+        return github.context.payload.client_payload.head_commit;
+    }
     if (github.context.payload.head_commit) {
         return github.context.payload.head_commit;
     }
